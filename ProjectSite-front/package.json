@@ -1,0 +1,62 @@
+{
+  "name": "ProjectSite",
+  "version": "1.0.0",
+  "proxy": "http://localhost:8082/",
+  "main": "index.js",
+  "dependencies": {
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.2",
+    "@reduxjs/toolkit": "^1.9.7",
+    "@supabase/auth-helpers-react": "^0.4.2",
+    "@supabase/supabase-js": "^2.39.1",
+    "http-proxy-middleware": "^2.0.6",
+    "jquery-circle-progress": "^1.2.2",
+    "json-server": "^0.17.4",
+    "mobx": "^6.10.2",
+    "mobx-localstorage": "^1.2.0",
+    "mobx-persist": "^0.4.1",
+    "mobx-react": "^9.0.1",
+    "moment": "^2.29.4",
+    "react": "^18.2.0",
+    "react-datetime-picker": "^5.6.0",
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
+    "react-router-dom": "^6.16.0",
+    "react-scripts": "^5.0.1",
+    "springjs": "^1.1.15",
+    "styled-components": "^6.1.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.1.0",
+    "@babel/preset-env": "^7.1.0",
+    "@types/node-fetch": "^2.6.6"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "serve": "json-server -p 3001 --watch db.json"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "options": {
+    "allowedHosts": [
+      "localhost",
+      ".localhost"
+    ]
+  },
+  "plugins": [],
+  "cypress": "concurrently \"ng serve\" \"cypress open\" \"json-server -p 3001 --watch db.json\""
+}

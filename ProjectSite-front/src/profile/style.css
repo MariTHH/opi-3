@@ -1,0 +1,217 @@
+.user-info-avatar {
+    border-radius: 50%;
+    color: white;
+    display: inline-block;
+    height: 65px;
+    left: 14px;
+    line-height: 30px;
+    text-align: center;
+    top: 220px;
+    width: 65px;
+}
+
+.user-info-name {
+    align-items: center;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0 rgba(11, 99, 246, 1);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 2vw;
+    justify-content: center;
+    line-height: 2vw;
+    margin-left: 104px;
+    margin-top: 20px;
+    padding: 6px;
+    transition: all 0.2s ease;
+    width: 150px;
+
+}
+
+.list {
+    background-color: cornflowerblue;
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    left: 100px;
+    position: absolute;
+    top: 290px;
+}
+
+.profile, .schedule, .back-button, .progress {
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0 rgba(11, 99, 246, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 4vw;
+    justify-content: center;
+    line-height: 4.5vw;
+    margin: 10px;
+    padding: 6px;
+    transition: all 0.2s ease;
+    width: 150px;
+}
+
+.profile:hover, .schedule:hover, .back-button:hover, .progress:hover {
+    background: royalblue;
+    box-shadow: 0 20px 40px 0 rgba(11, 99, 246, 1);
+    transform: translate(0, -3px);
+    transition: all 0.2s ease;
+}
+
+.profile a, .schedule a, .back-button a, .progress a {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    transition: all 0.2s ease;
+}
+
+.back-button {
+    margin-top: -500px;
+    padding: 6px;
+    width: 50px;
+}
+
+#graph {
+    background: lightcyan;
+    border-radius: 10%;
+    border: 3px solid cornflowerblue;
+    box-shadow: 17px 20px 11px 4px rgba(0, 0, 0, 0.3);
+    height: 350px;
+    margin: 120px auto auto 350px;
+    width: 450px;
+
+}
+
+#shed {
+    background: lightcyan;
+    border-radius: 10%;
+    border: 3px solid cornflowerblue;
+    box-shadow: 17px 20px 11px 4px rgba(0, 0, 0, 0.3);
+    height: 350px;
+    margin-left: 900px;
+    margin-top: -356px;
+    overflow-y: scroll;
+    width: 450px;
+}
+
+.header1 {
+    background-color: rgba(20, 122, 157, 0.39);
+    color: #fefefe;
+    font-family: 'Montserrat', sans-serif;
+    font-size: xx-large;
+    margin-top: -1px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#profileBox {
+    background: lightcyan;
+    border-radius: 10%;
+    border: 3px solid cornflowerblue;
+    box-shadow: 17px 20px 11px 4px rgba(0, 0, 0, 0.3);
+    display: none;
+    height: 700px;
+    margin: 310px auto auto 350px;
+    width: 1050px; /*1100*/
+}
+
+.username, .weight {
+    align-items: center;
+    border-color: cornflowerblue;
+    border-radius: 18px;
+    display: flex;
+    flex-direction: row;
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    font-weight: 300;
+    margin: 70px 0px 70px 100px;
+    padding: 8px;
+    touch-action: manipulation;
+}
+
+.sex {
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    margin-left: 70px;
+}
+
+input[type=radio] {
+    height: 2em;
+    width: 100px;
+}
+
+.save {
+    align-items: center;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px 0 rgba(11, 99, 246, 1);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    font-size: 4vw;
+    justify-content: center;
+    line-height: 4.5vw;
+    margin-left: 475px;
+    margin-top: 154px;
+    padding: 6px;
+    transition: all 0.2s ease;
+    width: 150px;
+}
+
+.save:hover {
+    background: royalblue;
+    box-shadow: 0 20px 40px 0 rgba(11, 99, 246, 1);
+    transform: translate(0, -3px);
+    transition: all 0.2s ease;
+}
+
+.save a {
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    transition: all 0.2s ease;
+}
+
+.circle {
+    color: cornflowerblue;
+    position: relative;
+    top: 45%;
+}
+
+.circleWrap {
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.exercises {
+    align-items: center;
+    background: cornflowerblue;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    font-family: Montserrat, sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    justify-content: center;
+    min-width: 50px;
+    padding: 5px 10px;
+    transform: translate(0, -3px);
+    transition: all 0.2s ease;
+    width: unset;
+}
+
+.listExercise {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}

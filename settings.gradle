@@ -1,0 +1,5 @@
+rootProject.name = 'TrainFit_Gradle'
+include 'ProjectSite-back'
+include 'ProjectSite-back'
+include 'ProjectSite-front'
+

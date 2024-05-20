@@ -1,0 +1,96 @@
+import javax.sound.sampled.AudioSystem
+import javax.sound.sampled.Clip
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.sun.faces:jsf-api:2.2.20'
+    implementation 'com.sun.faces:jsf-impl:2.2.20'
+    providedCompile 'javax.servlet:javax.servlet-api:4.0.1'
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.7.1"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.1"
+    implementation 'org.primefaces:primefaces:12.0.0'
+    implementation 'javax.servlet.jsp.jstl:jstl-api:1.2'
+    implementation 'org.postgresql:postgresql:42.3.0'
+    implementation 'com.oracle.database.jdbc:ojdbc6:11.2.0.4'
+    implementation 'javax:javaee-api:8.0.1'
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.0.2'
+    implementation 'javax.xml.bind:jaxb-api:2.3.0'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.2'
+    implementation 'org.postgresql:postgresql:42.5.1'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0'
+    implementation 'org.json:json:20230618'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:3.0.2'
+}
+
+
+configurations {
+    sassCompile
+}
+
+dependencies {
+    sassCompile 'nl.geodienstencentrum.maven:sass-maven-plugin:3.7.2'
+}
+
+
+task music(dependsOn: build) {
+    def soundFile = new File('src/main/resources/gta.wav')
+    if (project.hasProperty('sound')) {
+        soundFile = new File(project.sound)
+    }
+    doLast {
+        try {
+            Clip clip = AudioSystem.getClip()
+            clip.open(AudioSystem.getAudioInputStream(soundFile))
+            clip.start()
+            Thread.sleep(clip.getMicrosecondLength() / 1000)
+        } catch (Exception e) {
+        }
+    }
+
+}
+test {
+    useJUnitPlatform()
+}
+
+task testReport {
+    dependsOn test
+
+    doLast {
+        def timestamp = new Date().format('MM dd yyyy hh mm aa')
+        def reportDir = file("test-results/${timestamp}")
+        reportDir.mkdirs()
+
+        copy {
+            from "build/test-results/test"
+            include '*.xml'
+            into reportDir
+        }
+
+        gitAdd
+        gitCommit
+        gitPull
+    }
+}
+task gitAdd(type: Exec) {
+    commandLine 'git', 'add', "test-results/*"
+}
+
+task gitCommit(type: Exec) {
+    commandLine 'git', 'commit', '-m', "Generate test report ${new Date().format('MM dd yyyy hh mm aa')}"
+}
+
+task gitPull(type: Exec) {
+    commandLine 'git', 'pull'
+}

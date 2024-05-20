@@ -1,0 +1,72 @@
+.button-container {
+    color: white;
+    display: flex;
+    font-family: 'Comfortaa', cursive;
+    height: 15vh;
+    margin-top: 100px;
+    position: absolute;
+    right: 100px;
+    width: 30%;
+}
+
+a.my-button {
+    align-items: center;
+    background-color: cornflowerblue;
+    border-radius: 25px;
+    box-shadow: 0px 8px 25px 0px lightskyblue;
+    color: white;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: 800;
+    justify-content: center;
+    margin: 30px;
+    padding: 7px 20px;
+    text-decoration: none;
+    transition-duration: 0.4s;
+}
+
+a.my-button:hover {
+    background-color: royalblue;
+}
+
+#input-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+}
+
+.small-text {
+    background: cornflowerblue;
+    color: white;
+    display: flex;
+    font-family: 'Comfortaa', cursive;
+    font-size: 25px;
+    font-style: normal;
+    font-weight: 800;
+    margin-top: -60px;
+    padding: 7px 20px;
+    position: absolute;
+    right: 115px;
+    text-decoration: none;
+}
+
+#login-password-form {
+    color: white;
+    display: flex;
+    height: 15vh;
+    margin-top: -20px;
+    padding: 50px 90px;
+    position: absolute;
+    right: 160px;
+}
+
+.input-text {
+    flex-direction: column;
+    font-family: 'Comfortaa', cursive;
+    font-size: 15px;
+    font-weight: 300;
+}
