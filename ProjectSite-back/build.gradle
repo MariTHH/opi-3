@@ -3,6 +3,7 @@ import javax.sound.sampled.Clip
 plugins {
     id 'java'
     id 'war'
+    id 'base'
 }
 
 group 'org.example'
@@ -94,3 +95,23 @@ task gitCommit(type: Exec) {
 task gitPull(type: Exec) {
     commandLine 'git', 'pull'
 }
+// Файл build.gradle
+
+// Задача для установки npm зависимостей
+task npmInstall(type: Exec) {
+    workingDir '../ProjectSite-front'
+    commandLine 'npm', 'install'
+}
+task cypressRun(type: Exec) {
+    dependsOn npmInstall
+    workingDir '../ProjectSite-front'
+    commandLine 'npm', 'run', 'cypress:run'
+    inputs.dir file('../cypress/e2e/')
+    outputs.dir file('frontend/cypress/results')
+}
+
+
+
+
+// Включение задачи cypressRun в фазу сборки
+//build.dependsOn cypressRun

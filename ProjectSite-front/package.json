@@ -30,14 +30,17 @@
   "devDependencies": {
     "@babel/core": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
-    "@types/node-fetch": "^2.6.6"
+    "@types/node-fetch": "^2.6.6",
+    "cypress": "^9.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "serve": "json-server -p 3001 --watch db.json"
+    "serve": "json-server -p 3001 --watch db.json",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "browserslist": {
     "production": [
@@ -57,6 +60,7 @@
       ".localhost"
     ]
   },
-  "plugins": [],
+
+"plugins": [],
   "cypress": "concurrently \"ng serve\" \"cypress open\" \"json-server -p 3001 --watch db.json\""
 }
