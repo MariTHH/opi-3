@@ -6,14 +6,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class AuthController {
     private final AuthService authService;
+    private final UserMonitor userMonitor;
 
     @Autowired
-    public AuthController(AuthService authService) {
+    public AuthController(AuthService authService, UserMonitor userMonitor) {
         this.authService = authService;
+        this.userMonitor = userMonitor;
     }
 
     @PostMapping("/api/register")
-    public void register(@RequestParam("login") String login, @RequestParam("password") String password) {
+    public void register(@RequestParam("login") String login, @RequestParam("password") String password) throws InterruptedException {
         authService.register(login, password);
     }
 
@@ -23,8 +25,8 @@ public class AuthController {
     }
 
     @PostMapping("/api/params")
-    public void params(@RequestParam("login") String login, @RequestParam("username") String username, @RequestParam("sex") String sex, @RequestParam("weight") String weight) {
-        authService.addParams(login, username, sex, weight);
+    public void params(@RequestParam("login") String login, @RequestParam("username") String username, @RequestParam("sex") String sex, @RequestParam("weight") String weight,@RequestParam("email") String email ) {
+        authService.addParams(login, username, sex, weight, email);
     }
 
     @PostMapping("/api/getParams")

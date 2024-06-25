@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="AuthServiceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2024-05-30T15:00:18" hostname="MacBook-Air-Dasha.local" time="0.261">
+  <properties/>
+  <testcase name="testCheckWithInvalidAuthorization()" classname="AuthServiceTest" time="0.236"/>
+  <testcase name="testCheck()" classname="AuthServiceTest" time="0.013"/>
+  <testcase name="testCheckWithInvalidPassword()" classname="AuthServiceTest" time="0.001"/>
+  <testcase name="testRegister()" classname="AuthServiceTest" time="0.003"/>
+  <testcase name="testAddParams()" classname="AuthServiceTest" time="0.001"/>
+  <testcase name="testGetParams()" classname="AuthServiceTest" time="0.002"/>
+  <testcase name="testRegisterWithExistingUser()" classname="AuthServiceTest" time="0.001"/>
+  <system-out><![CDATA[1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

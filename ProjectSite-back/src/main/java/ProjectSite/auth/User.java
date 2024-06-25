@@ -16,15 +16,17 @@ public class User {
     private String passwordHash;
     private String weight;
     private String sex;
+    private String email;
 
     public User() {
     }
 
-    public User(String login, String passwordHash, String weight, String sex) {
+    public User(String login, String passwordHash, String weight, String sex, String email) {
         this.login = login;
         this.passwordHash = passwordHash;
         this.weight = weight;
         this.sex = sex;
+        this.email = email;
     }
 
     public Long getId() {
@@ -37,6 +39,12 @@ public class User {
 
     public String getWeight() {
         return weight;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public void setWeight(String weight) {

@@ -6,3 +6,5 @@
 /ProjectSite-back/build/classes/java/test/
 /ProjectSite-front/build/
 /ProjectSite-front/node_modules/
+build
+out

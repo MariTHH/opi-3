@@ -1,5 +1,6 @@
 import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.Clip
+
 plugins {
     id 'java'
     id 'war'
@@ -21,7 +22,6 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.7.1"
     implementation 'org.primefaces:primefaces:12.0.0'
     implementation 'javax.servlet.jsp.jstl:jstl-api:1.2'
-    implementation 'org.postgresql:postgresql:42.3.0'
     implementation 'com.oracle.database.jdbc:ojdbc6:11.2.0.4'
     implementation 'javax:javaee-api:8.0.1'
     implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
@@ -33,15 +33,6 @@ dependencies {
     implementation 'org.json:json:20230618'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test:3.0.2'
-}
-
-
-configurations {
-    sassCompile
-}
-
-dependencies {
-    sassCompile 'nl.geodienstencentrum.maven:sass-maven-plugin:3.7.2'
 }
 
 
@@ -58,6 +49,7 @@ task music(dependsOn: build) {
             Thread.sleep(clip.getMicrosecondLength() / 1000)
         } catch (Exception e) {
         }
+
     }
 
 }
@@ -79,7 +71,6 @@ task testReport {
             into reportDir
         }
 
-        gitAdd
         gitCommit
         gitPull
     }
@@ -89,13 +80,13 @@ task gitAdd(type: Exec) {
 }
 
 task gitCommit(type: Exec) {
+    dependsOn gitAdd
     commandLine 'git', 'commit', '-m', "Generate test report ${new Date().format('MM dd yyyy hh mm aa')}"
 }
 
 task gitPull(type: Exec) {
     commandLine 'git', 'pull'
 }
-// Файл build.gradle
 
 // Задача для установки npm зависимостей
 task npmInstall(type: Exec) {
@@ -107,11 +98,7 @@ task cypressRun(type: Exec) {
     workingDir '../ProjectSite-front'
     commandLine 'npm', 'run', 'cypress:run'
     inputs.dir file('../cypress/e2e/')
-    outputs.dir file('frontend/cypress/results')
 }
-
-
-
 
 // Включение задачи cypressRun в фазу сборки
 //build.dependsOn cypressRun

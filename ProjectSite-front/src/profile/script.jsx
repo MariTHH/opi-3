@@ -55,7 +55,7 @@ function Profile() {
         }
     }
 
-    const url = 'http://localhost:3001';
+    const url = 'http://127.0.0.1:3001';
     React.useEffect(() => {
             handleButtonClick();
             var Item = localStorage.getItem("sex");
@@ -85,6 +85,10 @@ function Profile() {
         formData.append('username', username);
         formData.append('weight', weight);
         formData.append('sex', sex);
+        if (session !== null && session !== undefined) {
+            formData.append('email', session.user.email)
+        }
+        formData.append('email', null)
 
         fetch("/api/params", {
             method: "POST",
@@ -189,7 +193,7 @@ function Profile() {
     }, [today])
     const now = new Date();
     const startOfDay = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    const getRedLinePosition = () => ((moment().format('X')- startOfDay.getTime() / 1000) / 39200) * 100;
+    const getRedLinePosition = () => ((moment().format('X') - startOfDay.getTime() / 1000) / 39200) * 100;
 
     return (
         <AppContainer>
@@ -273,7 +277,7 @@ function Profile() {
                 }}>Daily schedule</span>
                 <ScaleWrapper>
                     {
-                            <RedLine position={getRedLinePosition()}/>
+                        <RedLine position={getRedLinePosition()}/>
                     }
                     {
                         cells.map((events, i) => (
@@ -293,7 +297,8 @@ function Profile() {
                                         {
                                             events.map(event => (
 
-                                                <div className={"exercises"} onDoubleClick={() => navigate('/schedule')}>
+                                                <div className={"exercises"}
+                                                     onDoubleClick={() => navigate('/schedule')}>
                                                     {event.title} {" "}
                                                     {event.exercise}
                                                 </div>
